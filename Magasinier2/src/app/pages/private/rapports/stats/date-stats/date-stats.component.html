@@ -1,0 +1,45 @@
+<table class="table"
+    *ngIf="(statData.activities|searchEntity:searchService.search).length!=0">
+    <thead class="text-warning">
+        <th>#</th>
+        <th>Nom</th>
+        <th>Quantite Entree</th>
+        <th>Quantite vendu</th>
+        <th>Quantite Sortie</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of statData.activities|searchEntity:searchService.search; let i=index;">
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                {{item.categorie}} {{item.nom}}
+            </td>
+            <td class="text-center">
+                {{item.quantiteEntree}}
+            </td>
+            <td class="text-center">
+                {{item.quantiteVendue}}
+            </td>
+            <td class="text-center">
+                {{item.quantiteSortie}}
+            </td>
+            <td class="td-actions text-right">
+                <button type="button" rel="tooltip" title="Voir en details" (click)="onShow(item)"
+                    class="btn btn-primary btn-link btn-sm">
+                    <i class="material-icons">visibility</i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>
+<div *ngIf="(statData.activities|searchEntity:searchService.search).length===0">
+    <span class="text-danger">Aucune statistique</span>
+</div>
+<div class="modal" id="myProfilModal">
+    <div class="modal-dialog modal-lg">
+        <app-stat-profil></app-stat-profil>
+    </div>
+</div>

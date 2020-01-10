@@ -1,0 +1,60 @@
+// @import '../../../templates/material/scss/material-personal.scss';
+@import "../../../templates/material/scss/material-personal.scss";
+// @import '../../../templates/material/demo/demo.css';
+.logo {
+  height: 150px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+  a {
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 2em;
+    text-transform: uppercase;
+    // text-align: right !important;
+    color: #ffc312;
+  }
+  span{
+      color: #c51162;
+  }
+}
+#container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  overflow: hidden;
+  // border: 1px solid black;
+}
+.sidebar{
+    background: url(../../../assets/img/background.jpg);
+    .sidebar-content{
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.main-panel {
+  height: 100%;
+  nav {
+    height: 20%;
+  }
+
+  .content {
+    height: 73%;
+  }
+
+  footer {
+    height: 7%;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+}
+
+.dropcard {
+  width: 130px;
+  z-index: 100 !important;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  display: none;
+}

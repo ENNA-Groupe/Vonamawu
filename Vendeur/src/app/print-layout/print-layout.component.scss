@@ -1,0 +1,10 @@
+#content{
+  // background-image: url(../../assets/img/bg-bon.png) !important;
+  background-color: white !important;
+  height: 100%;
+}
+@media screen {
+  :host {
+    display: none;
+  }
+}

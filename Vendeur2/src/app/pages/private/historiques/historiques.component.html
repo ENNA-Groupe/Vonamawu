@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="card">
+
+        <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ul class="nav nav-tabs nav-justified" data-tabs="tabs">
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link': true, 'active': type==='user'}" (click)="type='user'"
+                                data-toggle="tab">
+                                <i class="material-icons">airline_seat_recline_normal</i>Utilisateurs
+                                <!-- <span class="badge badge-pill badge-light text-left"
+                                    *ngIf="!showArchive">{{adminData.data.length}}</span>
+                                -->
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link': true, 'active': type==='connexionMaison'}" (click)="type='connexionMaison'"
+                                data-toggle="tab">
+                                <i class="material-icons">shopping_cart</i>Connexion
+                                <!-- <span class="badge badge-pill badge-light text-left">{{vendeurData.data.length}}</span> -->
+
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link': true, 'active': type==='inventaireMaison'}" (click)="type='inventaireMaison'"
+                                data-toggle="tab">
+                                <i class="material-icons">transfer_within_a_station</i> Inventaires
+                                <!-- <span
+                                    class="badge badge-pill badge-light text-left">{{magasinierData.data.length}}</span>
+                               -->
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link': true, 'active': type=='sortieMaison'}" (click)="type='sortieMaison'"
+                                data-toggle="tab">
+                                <i class="material-icons">directions_run</i> Sorties
+                                <!-- <span class="badge badge-pill badge-light text-left">{{sortiesData.data.length}}</span> -->
+
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link': true, 'active': type==='entreeMaison'}" (click)="type='entreeMaison'"
+                                data-toggle="tab">
+                                <i class="material-icons">save_alt</i> Entrees
+                                <!-- <span
+                                    class="badge badge-pill badge-light text-left">{{fournisseurData.data.length}}</span>
+                                 -->
+                                <div class="ripple-container"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="card-title">Notifications</h4>
+                    <div [ngClass]="{'alert': true, 'alert-info': item.codeOperation===1, 'alert-danger': item.codeOperation===0, 'alert-primary': item.codeOperation===2, 'alert-warning': item.codeOperation===3}"
+                        *ngFor="let item of notData.data|byType:type|searchNotification:searchService.search">
+                        <span>
+                            <b>{{item.created_at|date:'dd-MM-yyyy HH:mm'}} - </b> {{item.message}}</span>
+                    </div>
+
+                </div>
+                <div *ngIf="(notData.data|byType:'sortieMaison').length===0">
+                    <span class="text-danger">Aucune notification pour le moment</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

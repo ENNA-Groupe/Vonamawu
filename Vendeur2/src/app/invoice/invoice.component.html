@@ -1,0 +1,125 @@
+<style type="text/css" media="print">
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+
+  }
+
+  @page {
+    size: A5 landscape;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+  }
+
+  hr {
+    width: 200px;
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid black;
+    margin: 1em 0; padding: 0;
+    margin-left: 50px;
+  }
+
+  .body {
+    /* background: url(../../assets/img/prints.png) !important;
+    background-position: center;
+    background-size: cover; */
+    min-height: 1285px;
+    overflow: hidden;
+    width: 100%;
+
+  }
+
+  .body .bgd {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .body .data {
+    z-index: 2;
+    overflow: hidden;
+    width: 100%;
+  }
+</style>
+<div id="print">
+  <!-- <div class="graph-image graph-7">
+    <img src="../../assets/img/print2.png" alt="Graph Description" />
+  </div> -->
+  <div id="header">
+    <div class="text-center" style="width: 300px;">
+      <span id="title" class="mb-5 gras">
+        ETS VONAMAWU
+      </span>
+      <hr>
+      <span class="pt-5">Lomé-TOGO</span></div>
+    <div class="float-right">
+      <span>Date : </span> <span class="gras"> {{operation.created_at|date:'dd/MM/yyyy'}}</span>
+    </div>
+  </div>
+  <div class="body">
+    <div class="bgd">
+      <img src="http://vonamawu.ennagroupe.com/public/img/print.png" alt="">
+    </div>
+    <div class="data">
+      <div id="infos" class="mb-5 float-center">
+        <h2 class="row mt-5 text-center gras">
+          BON DE LIVRAISON {{operation.numero}}
+        </h2>
+      </div>
+
+      <div class="row mb-5">
+        <span class="ml-4"> Nom du client : </span> <span class="gras"> {{operation.nomClient}}</span>
+      </div>
+
+      <div class="row mb-5">
+        <span class="ml-4"> Porteurs du bon : </span> <span class="gras"> {{porteurs.join('/')}}</span>
+      </div>
+
+      <div class="row mb-5">
+        <span class="ml-4"> Numero de plaque : </span> 
+      </div>
+
+      <table class="mt-5 mb-5" style="width:100%">
+        <tr>
+          <th id="quantite" class="text-center">QTE</th>
+          <th id="design">DESIGNATION</th>
+          <th>OBSERVATION</th>
+        </tr>
+        <tr *ngFor="let item of items;">
+          <td class="text-center">{{item.quantite}}</td>
+          <td>{{item.categorie}} {{item.nom}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="text-center">{{operation.quantiteTotale}} </th>
+          <th class="text-center">TOTAL</th>
+          <th></th>
+        </tr>
+      </table>
+      <div id="footer">
+        <div id="nomVendeur">
+          <span>Le vendeur,</span><br><br>
+          <span class="pt-5 gras">
+            {{vendeur.prenom}}
+          </span>
+        </div>
+        <div id="nomMAgasinier" class="float-right">
+          <span>Le Magasinier,
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

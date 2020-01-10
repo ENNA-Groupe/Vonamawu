@@ -1,0 +1,15 @@
+table, th, td {
+    border: 1px solid black;
+  }
+  table{
+      margin-left: 5%;
+
+  }
+  .invoice {
+    page-break-after: always;
+  }
+  
+  .invoice:last-child {
+    page-break-after: avoid;
+  }
+  

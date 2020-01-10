@@ -1,0 +1,32 @@
+#container{
+    background: url(../../../assets/img/background.jpg);
+    // background-image: linear-gradient(to right, rgba(22, 19, 19, 0.836),rgba(235, 235, 245, 0.836) );
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    overflow: hidden;
+    height: 100%;
+    // border: 1px solid black;
+}
+.titre{
+    height: 20%;
+    // border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body{
+    height: 70%;
+    .login-box{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // border: 1px solid green;
+    }
+}
+.footer{
+    height: 7%;
+    padding: 0 !important;
+    overflow: hidden;
+}

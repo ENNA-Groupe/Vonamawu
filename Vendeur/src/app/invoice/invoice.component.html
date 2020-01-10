@@ -1,0 +1,68 @@
+<div id="print">
+  <div id="header" class="mb-5">
+    <div class="float-left text-center">
+      <span id="title" class="gras">
+        ETS VONAMAWU
+      </span>
+      <hr>
+      <span class="info">Lomé-TOGO</span>
+    </div>
+
+    <div class="float-right">
+      <span>Date : </span> <span class="gras"> {{operation.created_at|date:'dd/MM/yyyy'}}</span>
+    </div>
+
+  </div>
+
+  <div id="body" class="mt-5">
+    <div id="bgd">
+      <img src="http://vonamawu.ennagroupe.com/public/img/print.png" alt="">
+      <!-- <img src="../../assets/img/prints.png" alt=""> -->
+    </div>
+    <div id="data">
+      <div id="info" class="mb-5">
+        <div  id="title2" class="mb-5 text-center gras">
+          <span>BON DE SORTIE {{operation.numero}}</span>
+        </div >
+
+        <div class="info mb-2">
+          <span > Nom du client : </span> <span class="gras"> {{operation.nomClient}}</span>
+        </div>
+
+        <div class="info mb-2">
+          <span> Porteurs du bon : </span> <span class="gras"> {{porteurs.join('/')}}</span>
+        </div>
+
+      </div>
+      <table class="mt-5 mb-5" style="width:100%">
+        <tr>
+          <th id="quantite" class="text-center">QTE</th>
+          <th id="design">DESIGNATION</th>
+          <th>OBSERVATION</th>
+        </tr>
+        <tr *ngFor="let item of items;">
+          <td class="text-center">{{item.quantite}}</td>
+          <td>{{item.categorie}} {{item.nom}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="text-center">{{operation.quantiteTotale}} </th>
+          <th class="text-center">TOTAL</th>
+          <th></th>
+        </tr>
+      </table>
+      <div id="footer">
+        <div id="nomVendeur" class="info">
+          <span>Le vendeur,</span><br>
+          <span class="gras">
+            {{vendeur.prenom}}
+          </span>
+        </div>
+        <div id="nomMAgasinier" class="info float-right">
+          <span>Le Magasinier,
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

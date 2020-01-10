@@ -1,0 +1,92 @@
+.invoice {
+  page-break-after: always;
+}
+
+.invoice:last-child {
+  page-break-after: avoid;
+}
+.graph-7{
+  z-index: 0;
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  overflow: hidden;
+  // background: url(../../assets/img/print.png) no-repeat !important;
+  
+}
+// .graph-image img{display: none;}
+
+// @media print{
+//   .graph-image{
+//     img{display:inline;}
+//   } 
+// }
+
+#print {
+  overflow: hidden;
+  // .body{
+  //   background: url(../../assets/img/print2.png) !important;
+  //   background-position: center;
+  //   background-size: cover;
+  //   min-height: 1285px;
+  // }
+  
+  min-height: 1510px;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+  // background-image: url('../../assets/img/bg-bon.png') !important;
+  background-color: white !important;
+  // font-size: 2em;
+  padding: 50px 25px 50px 25px;
+  #header {
+    width: 100%;
+    #title{
+    //  border-bottom: 2px solid black;
+      font-size: 2em;
+    }
+  }
+  span{
+    font-size: 2em;
+  }
+  #infos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    h2{
+      text-decoration: underline;
+      text-align: center;
+    }
+  }
+  table {
+  z-index: 2;
+    th, td{
+      border: 1px solid black;
+      margin: 1px;
+    }
+
+    th,td{
+      height: 80px;
+      font-size: 2em;
+      padding-left: 5px;
+    }
+    
+
+    th#design {
+      width: 50%;
+    }
+    th#quantite {
+      width: 15%;
+      text-align: center;
+    }
+  }
+}
+
+
+
+.gras{
+  font-weight: 900;
+  margin-left: 2px;
+}

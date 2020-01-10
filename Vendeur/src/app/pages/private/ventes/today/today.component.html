@@ -1,0 +1,77 @@
+<div class="text-center">
+
+    <button type="button" rel="tooltip" title="Ajouter"
+        class="btn btn-primary btn-sm" id="showModal" (click)="onAdd()">
+        <i class="material-icons">add</i>Effectuer une vente
+    </button>
+
+</div>
+
+<table class="table" *ngIf="(venteData.data|searchOperation:searchService.search).length!=0">
+    <thead class="text-warning">
+        <th>#</th>
+        <th>Numero de bon</th>
+        <th>Nom client</th>
+        <th>Quantite totale</th>
+        <th>Date de vente</th>
+        <th>Date de sortie</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr  [ngClass]="{'table-row': true, 'table-row-success':item.status===1, 'table-row-danger':item.status===0, 'table-row-primary':item.status===2}" 
+        *ngFor="let item of venteData.data|searchOperation:searchService.search; let i=index;">
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                {{item.numero}}
+            </td>
+            <td>
+                {{item.nomClient}}
+            </td>
+            <td>
+                {{item.quantiteTotale}}
+            </td>
+            <td>
+                {{item.created_at|date: 'dd-MM-yyyy HH:mm'}}
+            </td>
+            <td>
+                {{item.sortie_at|date:'dd-MM-yyyy HH:mm'}}
+            </td>
+            <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title="Voir en details" (click)="onShow(item)"
+                        class="btn btn-primary btn-link btn-sm">
+                        <i class="material-icons">visibility</i>
+                    </button>
+                    <button *ngIf="item.status===2" type="button" rel="tooltip" title="Modifier" class="btn btn-primary btn-link btn-sm"
+                        (click)="onEdit(item)">
+                        <i class="material-icons">edit</i>
+                    </button>
+                    <button  *ngIf="item.status===2" type="button" rel="tooltip" title="Supprimer" (click)="onDelete(item)"
+                        class="btn btn-danger btn-link btn-sm">
+                        <i class="material-icons">close</i>
+                    </button>
+                </td>
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="(venteData.data|searchOperation:searchService.search).length===0">
+    <span class="text-danger">Aucune vente trouvée</span>
+</div>
+
+<div class="modal" id="myProfilModal">
+    <div class="modal-dialog modal-lg">
+        <app-sortie-profil></app-sortie-profil>
+    </div>
+</div>
+
+<div class="modal" id="myEditModal">
+    <div class="modal-dialog modal-lg">
+        <app-edit-vente-form></app-edit-vente-form>
+    </div>
+</div>
+<div class="modal" id="myApercuModal">
+    <div class="modal-dialog modal-lg2">
+        <app-apercu></app-apercu>
+    </div>
+</div>

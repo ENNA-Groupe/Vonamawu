@@ -1,0 +1,43 @@
+<table class="table" *ngIf="( produitData.data|byCategorie:id|searchEntity:searchService.search).length!=0">
+    <thead class="text-warning">
+        <th>#</th>
+        <th>Nom</th>
+        <th>Quantite en Stock</th>
+        <th>Quantite Réel</th>
+        <th>Quantite d'alerte</th>
+        <!-- <th></th> -->
+    </thead>
+    <tbody>
+        <tr (click)="onShow(item)" *ngFor="let item of produitData.data|byCategorie:id|searchEntity:searchService.search; let i=index;">
+            <td>
+                {{i+1}}
+            </td>
+            <td>
+                {{ item.categorie }} {{item.nom}} 
+            </td>
+            <td>
+                {{item.quantiteStock}}
+            </td>
+            <td>
+                {{item.quantiteReel}}
+            </td>
+            <td>
+                {{item.quantiteCritique}}
+            </td>
+            <!-- <td class="td-actions text-right">
+                <button type="button" rel="tooltip" title="Voir en details" 
+                    class="btn btn-primary btn-link btn-sm">
+                    <i class="material-icons">visibility</i>
+                </button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="( produitData.data|byCategorie:id|searchEntity:searchService.search).length===0">
+    <span class="text-danger">Aucun produit trouvé</span>
+</div>
+<div class="modal" id="myProfilModal">
+    <div class="modal-dialog">
+        <app-prod-profil></app-prod-profil>
+    </div>
+</div>
